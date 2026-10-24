@@ -20,7 +20,7 @@ jobs:
       - name: Build API
         run: dotnet build CalculatorApp.csproj --configuration Release
       - name: Run unit tests
-        run: dotnet test tests/CalculatorApp.Tests --configuration Release
+        run: dotnet test --project tests/CalculatorApp.Tests/CalculatorApp.Tests.csproj --configuration Release
 
   frontend:
     name: React frontend (build)
