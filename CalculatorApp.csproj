@@ -11,4 +11,11 @@
     <PackageReference Include="Microsoft.OpenApi" Version="2.12.2" />
   </ItemGroup>
 
+  <!-- Keep the test project and the React app out of the API build. -->
+  <ItemGroup>
+    <Compile Remove="tests/**;frontend/**" />
+    <Content Remove="tests/**;frontend/**" />
+    <None Remove="tests/**;frontend/**" />
+  </ItemGroup>
+
 </Project>
