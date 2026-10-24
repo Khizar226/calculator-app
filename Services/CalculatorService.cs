@@ -34,7 +34,6 @@ public sealed class CalculatorService : ICalculatorService
             return false;
         }
 
-        // Match the operation sent by React and run the existing calculator math here.
         switch (request.Operation)
         {
             case "add":
@@ -72,8 +71,15 @@ public sealed class CalculatorService : ICalculatorService
                 return false;
         }
 
-        // Guard against overflow, such as raising a large number to a very large power.
-        if (!double.IsFinite(result))
+        // A negative base with a fractional exponent (e.g. (-8)^0.5) has no real result.
+        if (double.IsNaN(result))
+        {
+            error = "This operation has no real-number result.";
+            return false;
+        }
+
+        // Overflow, such as raising a large number to a very large power.
+        if (double.IsInfinity(result))
         {
             error = "The result is outside the supported number range.";
             return false;
