@@ -1,0 +1,30 @@
+@baseUrl = http://localhost:5080
+
+### Add two numbers
+POST {{baseUrl}}/api/calculator/calculate
+Content-Type: application/json
+
+{
+  "operation": "add",
+  "firstNumber": 12,
+  "secondNumber": 8
+}
+
+### Calculate a square root
+POST {{baseUrl}}/api/calculator/calculate
+Content-Type: application/json
+
+{
+  "operation": "sqrt",
+  "firstNumber": 81
+}
+
+### Division by zero returns a validation problem
+POST {{baseUrl}}/api/calculator/calculate
+Content-Type: application/json
+
+{
+  "operation": "divide",
+  "firstNumber": 10,
+  "secondNumber": 0
+}
