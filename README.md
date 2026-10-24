@@ -46,7 +46,7 @@ The API's OpenAPI document is available at `http://127.0.0.1:5080/openapi/v1.jso
 Unit tests for `CalculatorService` use xUnit v3 and cover every operation, the error cases and edge values (NaN, infinity, overflow, missing operands).
 
 ```powershell
-dotnet test tests/CalculatorApp.Tests
+dotnet test --project tests/CalculatorApp.Tests/CalculatorApp.Tests.csproj
 ```
 
 GitHub Actions builds the API, runs the tests and builds the React app on every push.
